@@ -13,7 +13,7 @@ resource "google_artifact_registry_repository" "repository" {
   project                = var.project
   cleanup_policy_dry_run = var.cleanup_policy_dry_run
   dynamic "cleanup_policies" {
-    for_each = var.cleanup_policies != null ? var.cleanup_policies : []
+    for_each = var.cleanup_policies != null ? var.cleanup_policies : {}
 
     content {
       id     = cleanup_policies.value.id
